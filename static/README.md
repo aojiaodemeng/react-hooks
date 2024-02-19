@@ -118,6 +118,7 @@ function App() {
 # 八、useState 实现原理
 
 1.当在 useState 方法中重新调用 render 方法时，App 组件重新渲染，此时 initialState 又重新为 0，因此需要将 state 写在 useState 方法外面。
+
 2.useState 可以被调用多次。因此 state 数据类型选择为数组，存储的是状态值。setters 存储的是对应的设置状态值的方法。利用索引 stateIndex 建立对应关系。
 
 3.useState 每次调用时，都需要使用闭包将 stateIndex 存储下来，在 useState 方法外创建 createSetter 方法（createSetter 方法里使用了形参 index，并返回了函数，index 保存了下来）
